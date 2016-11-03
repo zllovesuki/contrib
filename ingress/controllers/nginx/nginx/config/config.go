@@ -65,6 +65,11 @@ const (
 	// Size of the SSL shared cache between all worker processes.
 	// http://nginx.org/en/docs/http/ngx_http_ssl_module.html#ssl_session_cache
 	sslSessionCacheSize = "10m"
+
+    useGraylog = false
+    graylogHost = "127.0.0.1"
+    graylogHostAccessPort = "12345"
+    graylogHostErrorPort = "12346"
 )
 
 var (
@@ -263,6 +268,11 @@ type Configuration struct {
 	// Defines the number of worker processes. By default auto means number of available CPU cores
 	// http://nginx.org/en/docs/ngx_core_module.html#worker_processes
 	WorkerProcesses string `structs:"worker-processes,omitempty"`
+
+    UseGraylog bool `structs:"use-graylog"`
+    GraylogHost string `structs:"graylog-host"`
+    GraylogAccessPort string `structs:"graylog-access-port"`
+    GraylogErrorPort string `structs:"graylog-error-port"`
 }
 
 // NewDefault returns the default configuration contained
@@ -302,6 +312,10 @@ func NewDefault() Configuration {
 		CustomHTTPErrors:         make([]int, 0),
 		WhitelistSourceRange:     make([]string, 0),
 		SkipAccessLogURLs:        make([]string, 0),
+        UseGraylog:               useGraylog,
+        GraylogHost:              graylogHost,
+        GraylogAccessPort:        graylogAccessPort,
+        GraylogErrorPort:         graylogErrorPort,
 	}
 
 	if glog.V(5) {

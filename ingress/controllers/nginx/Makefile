@@ -1,8 +1,8 @@
 all: push
 
 # 0.0 shouldn't clobber any release builds
-TAG = 0.8.3
-PREFIX = gcr.io/google_containers/nginx-ingress-controller
+TAG = 0.8.3-O2-native-graylog
+PREFIX = zllovesuki/nginx-ingress-controller
 
 REPO_INFO=$(shell git config --get remote.origin.url)
 
@@ -19,7 +19,7 @@ container: controller
 	docker build -t $(PREFIX):$(TAG) .
 
 push: container
-	gcloud docker push $(PREFIX):$(TAG)
+	docker push $(PREFIX):$(TAG)
 
 clean:
 	rm -f nginx-ingress-controller
