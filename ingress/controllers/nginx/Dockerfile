@@ -13,7 +13,7 @@
 # limitations under the License.
 
 #FROM gcr.io/google_containers/nginx-slim:0.9
-FROM zllovesuki/nginx-slim:1.11.3-openssl-1.1.0
+FROM zllovesuki/nginx-slim:1.11.3-O2-native
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y \
   diffutils \
