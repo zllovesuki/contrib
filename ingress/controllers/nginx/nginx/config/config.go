@@ -68,8 +68,8 @@ const (
 
     useGraylog = false
     graylogHost = "127.0.0.1"
-    graylogHostAccessPort = "12345"
-    graylogHostErrorPort = "12346"
+    graylogAccessPort = "12345"
+    graylogErrorPort = "12346"
 )
 
 var (
