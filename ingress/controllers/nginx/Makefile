@@ -16,7 +16,7 @@ controller: controller.go clean
 		-o nginx-ingress-controller
 
 container: controller
-	docker build -t $(PREFIX):$(TAG) .
+	docker build --pull -t $(PREFIX):$(TAG) .
 
 push: container
 	docker push $(PREFIX):$(TAG)
